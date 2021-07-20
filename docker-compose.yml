@@ -1,0 +1,36 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    ports:
+      - "5432:5432"
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
+    environment:
+      ADMINER_PLUGINS: >
+        edit-calendar
+        file-upload
+        edit-foreign
+        edit-textarea
+        email-table
+        enum-option
+        enum-types
+        file-upload
+        foreign-system
+        frames
+        json-column
+        table-structure
+        table-indexes-structure
+      ADMINER_DESIGN: rmsoft_blue
+      ADMINER_DEFAULT_DB_DRIVER: pgsql
+      ADMINER_DEFAULT_DB_NAME: postgres

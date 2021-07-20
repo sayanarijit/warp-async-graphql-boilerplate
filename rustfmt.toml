@@ -1,0 +1,4 @@
+edition = "2018"
+unlesswrap_comments = true
+max_width = 90
+use_field_init_shorthand = true
